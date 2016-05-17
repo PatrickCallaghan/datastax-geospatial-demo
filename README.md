@@ -91,7 +91,7 @@ Dependencies:
 
 Kick off the proxy:
 
-    screen node corsServer.js 
+    screen node server.js 
 
 Then Navigate to GeoMap and kick off the web server that will host your web application (depends on python 2.x):
 
