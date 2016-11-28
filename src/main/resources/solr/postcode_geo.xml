@@ -1,10 +1,6 @@
 <schema name="postcode_checker" version="1.1">
   <types>
-  	<fieldType name="string" class="solr.TextField">
-		<analyzer>
-			<filter class="solr.ClassicFilterFactory"/>
-			<tokenizer class="solr.NGramTokenizerFactory" minGramSize="1" maxGramSize="1"/>
-		</analyzer>
+  	<fieldType name="string" class="solr.StrField">
 	</fieldType>		
 	<fieldType name="text" class="solr.TextField">
 	  		<analyzer>      		  	      		
@@ -17,11 +13,10 @@
 		
    </types>
   <fields>
-    <field name="post_code"  type="text" indexed="true"  stored="true"/>   
     <field name="lon_lat" type="location" indexed="true"  stored="true"  multiValued="false" />
     <dynamicField name="*_coordinate"  type="tdouble" indexed="true"  stored="false"/>
-       
-  </fields>
-  <defaultSearchField>post_code</defaultSearchField>
-  <uniqueKey>post_code</uniqueKey>  
+
+	<field indexed="true" multiValued="false" name="post_code" stored="true" type="string"/>
+	</fields>
+	<uniqueKey>post_code</uniqueKey>
 </schema>
